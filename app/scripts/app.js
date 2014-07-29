@@ -29,6 +29,15 @@ angular.module('encoreApp', deps)
                 templateUrl: 'views/status/status.html',
                 controller: 'StatusCtrl'
             })
+            .when('/teams/:id/statuses'
+              ,{
+                templateUrl: 'views/team/teamStatus.html',
+                controller: 'TeamStatusCtrl'
+            })
+            .when('/teams/:id/users', {
+                templateUrl: 'views/team/teamUsers.html',
+                controller: 'TeamUsersCtrl'
+            })
             .otherwise({
                 redirectTo: '/home'
             });

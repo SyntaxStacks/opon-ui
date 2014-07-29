@@ -1,15 +1,16 @@
 angular.module('encoreApp')
-    .controller('TeamCtrl', function ($scope, $http) {
+    .controller('TeamStatusCtrl', function ($scope, $http) {
+          //var id = $routeParams.id;
           var req = {
               url: '',
               method: 'GET'
           };
           $http(req).
           success(function(data, status, headers, config) {
-              $scope.teams = data;
+              $scope.teamStatus = data;
           }).
           error(function(data, status, headers, config) {
-              $scope.teams = [];
-              $scope.notification = { message: 'team err', type: 'error' };
+              $scope.teamStatus = [];
+              $scope.notification = { message: 'teamStatus err', type: 'error' };
           });
     });
