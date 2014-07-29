@@ -1,11 +1,33 @@
 'use strict';
+var deps = [
+    'ngRoute',
+    'ngResource',
+    'encore.ui',
+    'encore.ui.rxModalAction',
+    'homeSvcs',
+    'teamSvcs',
+    'userSvcs',
+    'statusSvcs'
+];
 
-angular.module('encoreApp', ['ngRoute', 'ngResource', 'encore.ui', 'encore.ui.rxModalAction', 'homeSvcs'])
+angular.module('encoreApp', deps)
     .config(function ($routeProvider, $locationProvider, $httpProvider) {
         $routeProvider
             .when('/home', {
                 templateUrl: 'views/home/home.html',
                 controller: 'HomeCtrl'
+            })
+            .when('/users', {
+                templateUrl: 'views/user/user.html',
+                controller: 'UserCtrl'
+            })
+            .when('/teams', {
+                templateUrl: 'views/team/team.html',
+                controller: 'TeamCtrl'
+            })
+            .when('/statuses', {
+                templateUrl: 'views/status/status.html',
+                controller: 'StatusCtrl'
             })
             .otherwise({
                 redirectTo: '/home'
